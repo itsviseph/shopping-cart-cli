@@ -1,6 +1,7 @@
 # -----------------------------
 # Product catalog (item -> price)
 # -----------------------------
+
 display_items = {
     'macbook': 1000,
     'iphone': 900,
@@ -12,6 +13,9 @@ display_items = {
 for key, value in display_items.items():
     print(f'{key}: {value}')
 
+# Cart to store selected items
+my_cart = []
+
 # -----------------------------
 # Main menu loop
 # Repeats until user chooses checkout or end
@@ -19,7 +23,7 @@ for key, value in display_items.items():
 while True:
 
     # Display menu options
-    print('How would you like to proceed')
+    print('\nHow would you like to proceed')
     print('add item')
     print('view cart')
     print('checkout')
@@ -29,23 +33,27 @@ while True:
     user_action = input('enter your choice: ')
 
     # -------------------------
-    # Planned feature: Add item
+    # Add item logic
     # -------------------------
-    # if user_action == 'add item':
-        # show items again
-        # ask which item to add
-        # add selected item to cart
-        # continue loop
+    if user_action == 'add item':
+        print('\nAvailable items:')
+        for key, value in display_items.items():
+            print(f'{key}: {value}')
+
+        chosen_item = input('Which item would you like to add? ')
+
+        if chosen_item in display_items:
+            price = display_items[chosen_item]
+            my_cart.append((chosen_item, price))
+            print(f'{chosen_item} added to cart')
+        else:
+            print('Item not found')
 
     # -------------------------
-    # Planned feature: View cart
+    # View cart logic (planned)
     # -------------------------
     # if user_action == 'view cart':
-        # display items in cart
-        # display individual prices
-        # calculate total cart value
-        # display total
-        # continue loop
+    #     pass
 
     # -------------------------
     # Exit conditions
