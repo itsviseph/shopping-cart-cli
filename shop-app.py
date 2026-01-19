@@ -10,8 +10,7 @@ display_items = {
 }
 
 # Display available items and prices (runs once)
-for key, value in display_items.items():
-    print(f'{key}: {value}')
+
 
 # Cart to store selected items
 my_cart = []
@@ -49,6 +48,13 @@ while True:
         else:
             print('Item not found')
 
+    if user_action == 'view cart':
+        if not my_cart:
+            print('Your cart is empty')
+        else:
+            for item, price in my_cart:
+                print(f'{item}: {price}')
+
     # -------------------------
     # View cart logic (planned)
     # -------------------------
@@ -61,3 +67,4 @@ while True:
     if user_action == 'checkout' or user_action == 'end':
         print('Thank you!')
         break
+
